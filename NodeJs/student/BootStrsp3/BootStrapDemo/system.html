@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>system bootstrap</title>
+		<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+
+			.divitem {
+				display: inline;
+				padding-left: 30px;
+				color: white;
+			}
+
+			.top {
+				width: 100%;
+				border: 1px solid black;
+				height: 10%;
+				background-color: black;
+			}
+
+			.middle {
+				height: 80%;
+			}
+
+			.left {
+				border: 1px solid red;
+				height: 120%;
+			}
+
+			.right {
+				height: 100%;
+			}
+
+			.console {
+				margin-top: 5px;
+				border: 1px solid blue;
+				height: 8%;
+			}
+
+			.button {
+				border: 1px solid yellow;
+				margin-top: 5px;
+				height: 8%;
+			}
+
+			.penle {
+				height: 100%;
+			}
+
+			.item {
+				margin-top: 5px;
+				height: 50%;
+				border: 1px solid salmon;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid top">
+			<div class="h3 divitem">管理系统</div>
+			<div class="h4 divitem">首页</div>
+			<div class="dropdown divitem" style="margin-top: 15px;"> <button class="btn btn-default dropdown-toggle" type="button"
+				 id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="background-color: black; color: white;">
+					功能 <span class="caret"></span> </button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="#"><small>业务功能</small></a></li>
+					<li><a href="#">业务建立</a></li>
+					<li><a href="#">信息查询</a></li>
+					<li><a href="#">信息管理</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#"><small>系统功能</small></a></li>
+					<li><a href="#">设置</a></li>
+				</ul>
+			</div>
+			<div class="h4 divitem">帮助</div>
+			<div class="divitem">
+				<form class="form-inline">
+					<div class="form-group divitem"> <label class="sr-only" for="exampleInputEmail1"></label> <input type="email"
+						 class="form-control" id="exampleInputEmail1" placeholder="User"> </div>
+					<div class="form-group divitem"> <label class="sr-only" for="exampleInputPassword1"></label> <input type="password"
+						 class="form-control" id="exampleInputPassword1" placeholder="Password"> </div>
+				</form>
+			</div>
+		</div>
+		<div class="middle">
+			<div class="col-md-3 left">左侧导航</div>
+			<div class="col-md-9 right">
+				<div class="container-fluid console">管理控制台</div>
+				<div class="container-fluid button">操作按钮</div>
+				<div class="container-fluid penle">
+					<div class="col-md-6 item">最新提醒</div>
+					<div class="col-md-6 item">我的任务</div>
+					<div class="col-md-6 item">最新订单</div>
+					<div class="col-md-6 item">工程进度</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

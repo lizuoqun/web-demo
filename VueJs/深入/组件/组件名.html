@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button-lzq></button-lzq>
+			<my-button></my-button>
+		</div>
+		<script>
+			Vue.component('button-lzq', {
+					template: '<button>this is button-lzq</button>'
+				}),
+				Vue.component('MyButton', {
+					template: '<button>this is my button</button>'
+				})
+			var app = new Vue({
+				el: "#app",
+				data: {
+
+				}
+			})
+		</script>
+	</body>
+</html>

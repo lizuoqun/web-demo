@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="user-scalable=no, width=device-width, 
+		initial-scale=1.0, maximum-scale=1.0">
+		<title>1</title>
+		<!--导入开发版的vuejs-->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{ massage }}
+			<input type="button" value="单击事件" v-on:click="doIt" />
+			<input type="button" value="单击事件" @click="doIt" />
+			<input type="button" value="鼠标事件" v-on:mouseenter="mouse" />
+			<input type="button" value="双击事件" v-on:dblclick="dbdoIt" />
+			<h2 @click="changeFood">{{food}}</h2>
+			<input type="button" value="带参" v-on:click="doIt(666)" />
+			<input type="text" v-on:keyup.enter="sayHi" />
+		</div>
+		
+		<script>
+			var app=new Vue({
+				el:"#app",
+				methods:{
+					doIt:function(){
+						alert("do It")
+					},
+					dbdoIt:function() {
+							alert("db do it")
+					},
+					mouse:function(){
+						alert("mouse enter")
+					},
+					changeFood:function(){
+						//console.log(this.food)
+						this.food+=" ! "
+					},
+					doIt:function(p1){
+						alert(p1)
+					},
+					sayHi:function(){
+						alert("你好")
+					}
+				},
+				data:{
+					massage:"Hello Vue!",
+					food:"腐竹"
+				}
+			})
+		</script>
+	</body>
+</html>

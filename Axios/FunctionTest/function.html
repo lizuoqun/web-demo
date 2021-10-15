@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>function</title>
+	</head>
+	<body>
+		<button onclick="Get()">get</button>
+		<button onclick="Post()">post</button>
+		<button onclick="Put()">put</button>
+		<button onclick="Delete()">post</button>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script>
+			function Get() {
+				axios.get('http://localhost:3000/posts').then(function(response) {
+					console.log('get', response.data)
+				})
+			}
+
+			function Post() {
+				axios.post('http://localhost:3000/posts', {
+					"title": "java-axios",
+					"author": "html-axios"
+				}).then(function(response) {
+					console.log('post ', response.data)
+				})
+			}
+
+			function Put() {
+				axios.put('http://localhost:3000/posts/2', {
+					"title": "java-axios-put",
+					"author": "html-axios-put"
+				}).then(function(response) {
+					console.log(response.data)
+				})
+			}
+			
+			function Delete(){
+				axios.delete('http://localhost:3000/posts/2').then(function (response){
+					console.log('delete',response.data)
+				})
+			}
+		</script>
+	</body>
+</html>

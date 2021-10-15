@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="user-scalable=no, width=device-width, 
+		initial-scale=1.0, maximum-scale=1.0">
+		<title>轮播图</title>
+		<!--导入开发版的vuejs-->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			.box {
+				float: left;
+			}
+
+			.item {
+				margin-top: 200px;
+				margin-left: 500px;
+			}
+
+			.items1 {
+				position: fixed;
+				margin-left: -50px;
+				margin-top: 90px;
+			}
+
+			.items2 {
+				position: fixed;
+				margin-left: 250px;
+				margin-top: -110px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app" class="box">
+			<div class="item">
+				<div v-on:click="up" v-if="isleftShow" class="items1">
+					< </div> <img :src="imgsrc[num]" style="width: 200px; height: 200px;" />
+					<div v-on:click="down" v-if="isrightShow" class="items2"> > </div>
+				</div>
+			</div>
+
+			<script>
+				var app = new Vue({
+					el: "#app",
+					methods: {
+						up: function() {
+							if (this.num < 1) {
+								this.isleftShow = false
+							} else {
+								this.num--;
+								this.isrightShow = true
+							}
+						},
+						down: function() {
+							if (this.num > 2) {
+								this.isrightShow = false
+							} else {
+								this.num++;
+								this.isleftShow = true
+							}
+						}
+					},
+					data: {
+						num: 0,
+						imgsrc: ["../img/2.png", "../img/3.png", "../img/4.png", "../img/5.png"],
+						isleftShow: false,
+						isrightShow: true
+					}
+				})
+			</script>
+	</body>
+</html>

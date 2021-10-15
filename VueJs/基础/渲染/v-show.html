@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="user-scalable=no, width=device-width, 
+		initial-scale=1.0, maximum-scale=1.0">
+		<title>1</title>
+		<!--导入开发版的vuejs-->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<img v-show="isShow" src="../img/1.png"  />
+			
+			<br />
+			<input type="button" value="切换" @click="changeisShow" />
+			
+			<br /><br />
+			
+			<img v-show="age>18" src="../img/1.png"  />
+			<input type="button" value="add age" @click="AddAge" />
+		</div>
+		
+		<script>
+			var app=new Vue({
+				el:"#app",
+				methods:{
+					changeisShow:function(){
+						this.isShow=!this.isShow
+					},
+					AddAge:function(){
+						this.age++,
+						alert(this.age)
+					}
+				},
+				data:{
+					isShow:true,
+					age:15
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button_lzq title="huangyueyue"></button_lzq>
+			<button_lzq v-for="a in posts" v-bind:title="a.title"></button_lzq>
+		</div>
+		<script>
+			Vue.component('button_lzq', {
+				props: ['title'],
+				template: '<button>this is {{title}} button</button>'
+			})
+			var app = new Vue({
+				el: "#app",
+				data: {
+					posts: [{
+							id: 1,
+							title: 'My journey with Vue'
+						},
+						{
+							id: 2,
+							title: 'Blogging with Vue'
+						},
+						{
+							id: 3,
+							title: 'Why Vue is so fun'
+						}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>

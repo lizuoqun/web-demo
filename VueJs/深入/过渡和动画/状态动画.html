@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>状态动画（数字修改）</title>
+		<script src="https://unpkg.com/vue"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="number" v-model.number="number" step="20" />
+			<br />
+			{{animatedNumber}}
+		</div>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					number: 0,
+					tweenedNumber: 0
+				},
+				computed: {
+					animatedNumber: function() {
+						return this.tweenedNumber.toFixed(0);
+					}
+				},
+				watch: {
+					number: function(newValue) {
+						gsap.to(this.$data, {
+							duration: 0.5,
+							tweenedNumber: newValue
+						});
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

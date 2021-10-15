@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../../NodeJs/student/BootStrsp3/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<form class="form-inline">
+				<div class="form-group">
+					<label class="sr-only" for="id">编号：</label>
+					<input type="text" v-model="id" class="form-control" id="input_no" placeholder="编号">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="brand">品牌：</label>
+					<input type="text" v-model="brand" class="form-control" id="input_brand" placeholder="品牌">
+				</div>
+				<input type="button" value="添加" @click="subimt" /><br /><br />
+			</form>
+
+
+			<table class="table table-striped">
+				<tr>
+					<td>编号</td>
+					<td>品牌</td>
+					<td>创建时间</td>
+					<td>操作</td>
+				</tr>
+				<tr v-for="table in tables">
+					<td>{{table.id}}</td>
+					<td>{{table.brand}}</td>
+					<td>{{table.time}}</td>
+					<td @click="remove(table.id)" v-bind:title="table.id">
+						<a>删除</a>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+		<script>
+
+		</script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					id: '',
+					brand: '',
+					time: '',
+					tables: [{
+						id: '1',
+						brand: '宝马',
+						time: '2020-12-06 12:10:06'
+					}, {
+						id: '2',
+						brand: 'YSL',
+						time: '2020-11-11 12:10:06'
+					}],
+				},
+				methods: {
+					subimt: function() {
+						var input_no = document.getElementById("input_no").value;
+						var input_brand = document.getElementById("input_brand").value;
+						var date = new Date()
+						var month = date.getMonth() + 1
+						var day = date.getDate()
+						var min = date.getMinutes()
+						var second = date.getSeconds();
+						if (day < 10) {
+							day = '0' + day
+						}
+						if (min < 10) {
+							min = '0' + min
+						}
+						if (second < 10) {
+							second = '0' + second;
+						}
+						time = date.getFullYear() + "-" + month + "-" + day + " " + date.getHours() + ":" + min + ":" + second;
+
+						if (input_no == '') {
+							alert("请输入编号")
+						} else if (input_brand == '') {
+							alert("请输入品牌")
+						} else {
+
+							const table = {
+								id: this.id,
+								brand: this.brand,
+								time: time
+							}
+							this.tables.push(table)
+
+						}
+					},
+
+					remove: function(id) {
+						//this.tables.splice(id - 1, 1)
+						this.tables.splice(
+							this.tables.indexOf(this.tables.find(function(element) {
+								return element.id === id;
+							})), 1);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

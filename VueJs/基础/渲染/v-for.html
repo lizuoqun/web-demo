@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-for</title>
+		<script src="../vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul><li v-for="(item,index) in arr">索引 {{index}} 值 {{item}}</li></ul>
+			<h3 v-for="(item,index) in food" v-bind:title="item.name">{{item.name}}</h3>
+			<input type="button" value="add" @click="add" />
+			<input type="button" value="remove" @click="remove" />
+			<p>{{message}}</p>
+			<input type="button" value="反转" @click="reverse" />
+		</div>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				methods: {
+					add: function() {
+						this.food.push({
+							name: "瓜皮"
+						})
+					},
+					remove: function() {
+						this.food.shift()
+					},
+					reverse:function(){
+						this.message=this.message.split("").reverse().join("")
+					}
+				},
+				data: {
+					arr: [1, 2, 3],
+					food: [{name: "辣椒炒肉"},{name: "腐竹"}],
+					message:"hello world"
+				}
+			})
+		</script>
+	</body>
+</html>

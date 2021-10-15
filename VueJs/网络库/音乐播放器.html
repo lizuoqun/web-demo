@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>网抑云</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			.left {
+				height: 480px;
+				width: 18%;
+				background-color: #1EACDA;
+				margin-top: 30px;
+				margin-left: 80px;
+				font-size: 16px;
+				color: black;
+				overflow: scroll;
+				filter: alpha(Opacity=80);
+				-moz-opacity: 0.5;
+				opacity: 0.5;
+			}
+
+			.middle {
+				width: 35%;
+				height: 480px;
+				float: left;
+				margin-left: 530px;
+				margin-top: -400px;
+				filter: alpha(Opacity=80);
+				-moz-opacity: 0.5;
+				opacity: 0.5;
+			}
+
+			.right {
+				width: 25%;
+				height: 480px;
+				float: right;
+				background-color: #1EACDA;
+				margin-top: -562px;
+				margin-right: 40px;
+				font-size: 16px;
+				color: black;
+				overflow: scroll;
+				filter: alpha(Opacity=80);
+				-moz-opacity: 0.5;
+				opacity: 0.5;
+			}
+
+			.search {
+				float: right;
+				margin-right: 200px;
+				margin-top: 20px;
+			}
+
+			.audio_con {
+				float: left;
+				width: 100%;
+				margin-top: -70px;
+			}
+
+			.myaudio {
+				width: 90%;
+			}
+
+			.bg {
+				width: 100%;
+				height: 100%;
+				max-width: 100%;
+				max-height: 100%;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+				overflow: auto;
+				position: fixed;
+				z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<img class="bg" src="https://s1.ax1x.com/2020/09/20/w7tnxA.jpg" />
+			<div>
+				<span style="font-size: 25px;">网抑云音乐</span>
+				<div class="search">
+					<input type="text" v-model="query" @keydown.enter="Get" />
+					<button @click="Get">搜索</button>
+				</div>
+			</div>
+			<div class="left">
+				<div style="text-align: center;" v-show="musicArr" v-for="item in musicArr" @click="PlayMusic(item.id)">{{item.name}}</div>
+
+			</div>
+			<div class="middle">
+				<img :src="imgUrl" style="width: 300px; height: 300px;" />
+			</div>
+
+			<div class="right">
+				<div v-for="item in Comments">
+					<br />
+					{{item.nikename}}<small>{{item.content}}</small>
+				</div>
+			</div>
+			<div class="audio_con">
+				<audio style="clear:both;display:block;margin:auto" ref="audio" :src="musicUrl" controls autoplay loop class="myaudio"></audio>
+			</div>
+		</div>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				methods: {
+					Get: function() {
+						var that = this
+						axios.get('https://autumnfish.cn/search?keywords=' + this.query).then(function(response) {
+							//console.log(response)
+							that.musicArr = response.data.result.songs;
+						}, function(err) {
+							console.log(err)
+						})
+					},
+					PlayMusic: function(musicID) {
+						console.log(musicID)
+						var that = this
+						axios.get('https://autumnfish.cn/song/url?id=' + musicID).then(function(response) {
+							//console.log(response)
+							//console.log(response.data.data[0].url)
+							that.musicUrl = response.data.data[0].url
+						}, function(err) {
+							console.log(err)
+						})
+
+						axios.get('https://autumnfish.cn/song/detail?ids=' + musicID).then(function(response) {
+							console.log(response)
+							that.imgUrl = response.data.songs[0].al.picUrl
+						})
+
+						axios.get('https://autumnfish.cn/comment/hot?type=0&id=' + musicID).then(function(response) {
+							console.log(response)
+							that.Comments = response.data.hotComments;
+							//console.log(response.data.hotComments[0].user.nickname)
+							//console.log(Comments)
+						}, function(err) {
+							console.log(err)
+						})
+					}
+				},
+				data: {
+					query: "薛之谦",
+					musicArr: [],
+					musicUrl: '',
+					//imgUrl: '../img/1.png',
+					imgUrl:'http://chuantu.xyz/t6/741/1600564443x-1566676442.jpg',
+					Comments: []
+				}
+			})
+		</script>
+	</body>
+</html>

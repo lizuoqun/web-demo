@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+		<style type="text/css">
+			.list-item {
+				display: inline-block;
+				margin-right: 10px;
+			}
+
+			.list-enter-active,
+			.list-leave-active {
+				transition: all 1s;
+			}
+
+			.list-enter,
+			.list-leave-to {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="add" @click="add" />
+			<input type="button" value="remove" @click="remove" />
+			<input type="button" value="shuffle" @click="shuffle" />
+			<br />
+			<transition-group name="list" tag="p">
+				<span v-for="arr in arrays" v-bind:key="arr">{{arr}} &nbsp;</span>
+			</transition-group>
+		</div>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					arrays: [1, 2, 3, 4, 5, 6]
+				},
+				methods: {
+					add: function() {
+						this.arrays.push(6)
+					},
+					remove: function() {
+						this.arrays.pop()
+					},
+					shuffle: function() {
+						this.arrays = _.shuffle(this.arrays)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+{
+	"name": "node_project",
+	"version": "1.0.1",
+	"description": "this is node project and npm ",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "lzq",
+	"license": "ISC",
+	"dependencies": {
+		"cnpm": "^6.1.1",
+		"moment": "^2.29.1"
+	}
+}

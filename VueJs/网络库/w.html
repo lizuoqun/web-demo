@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>获取验证码</title>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="Get()">开始获取</button>
+			<div style="height: 30px;"></div>
+			<div>已发送{{tatal}}条</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					tatal: 0,
+					num: '13317641134',
+					//num:'15173413245'
+				},
+				methods: {
+					Get: function() {
+						this.$http = axios;
+						this.$http.jsonp('https://818ps.com/site-api/send-tel-login-code?num=' + this.num, {
+							params: {},
+							jsonp: 'handleCallback'
+						}).then((res) => {
+							console.log(res);
+						})
+					}
+
+				},
+
+			})
+		</script>
+	</body>
+</html>

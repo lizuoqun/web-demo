@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<blog-post v-model="text"></blog-post>
+			{{text}}
+		</div>
+		<script>
+			Vue.component('blog-post', {
+				props: ['value'],
+				template: '<input v-bind:value="value" v-on:input="$emit(\'input\',$event.target.value)"></input>'
+			})
+			var app = new Vue({
+				el: "#app",
+				data: {
+					text: ""
+				}
+			})
+		</script>
+	</body>
+</html>

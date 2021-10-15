@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>插值</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h4>{{message}}</h4>
+			<h4 v-once>{{message}}</h4>
+			<input type="button" value="change" @click="change()" />
+			<h4 v-html="html"></h4>
+			<h4>{{message.split("").reverse().join("")}}</h4>
+			<h4>{{ok?"YES":"NO"}}</h4>
+			<form v-on:submit.prevent="onSubmit">
+				
+			</form>
+		</div>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				methods: {
+					change: function() {
+						this.message = "xingxi"
+					},
+					onSubmit:function(){
+						alert("submit")
+					}
+				},
+				data: {
+					message: "信息",
+					ok: true,
+					html: "<h3>this is h3</h3>"
+				}
+			})
+		</script>
+	</body>
+</html>

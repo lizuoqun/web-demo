@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<todo v-if="Math.random() > 0.5">
+				<div>you do</div>
+			</todo>
+			<div v-else>
+				Now you don't
+			</div>
+
+			<div v-if="type==='A'">A</div>
+			<div v-else-if="type==='B'">B</div>
+			<div v-else-if="type=='C'">C</div>
+			<div v-else>this is not A B C</div>
+
+			<div v-if="loginType === 'username'">
+				<label>Username</label>
+				<input placeholder="Enter your username">
+			</div>
+			<div v-else>
+				<label>Email</label>
+				<input placeholder="Enter your email address">
+			</div>
+			<input type="button" value="切换" @click="change" />
+			{{type}}
+		</div>
+		<script>
+			Vue.component('todo', {
+				template: ''
+			})
+			var app = new Vue({
+				el: "#app",
+				data: {
+					type: 1,
+					loginType: 'username'
+				},
+				methods: {
+					change: function() {
+						if (this.loginType == 'username') {
+							this.loginType = 'address'
+						} else if (this.loginType == 'address') {
+							this.loginType = 'username'
+						}
+
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

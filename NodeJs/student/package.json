@@ -1,0 +1,15 @@
+{
+  "name": "student",
+  "version": "1.0.0",
+  "description": "student grade ",
+  "main": "db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lzq",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "mysql": "^2.18.1"
+  }
+}

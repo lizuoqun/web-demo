@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>axaj</title>
+	</head>
+	<body>
+		<input type="button" value="点击" id="btn" />
+		<script>
+			document.getElementById("btn").onclick = function() {
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function() {
+					if (xhr.readystate == 4) {
+						//alert(xhr.responseText)
+						alert("1234")
+					}
+				}
+				xhr.open('get','test.html')
+				xhr.send()
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>记事本</title>
+		<script src="../vue.js"></script>
+		<style>
+			html,body{
+				width: 100%;
+				height: 100%;
+				background-color: antiquewhite;
+			}
+			.all{
+				float: left;
+				margin-left: 500px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div id="app">
+				<input type="text" v-model="message" @keydown.enter="save" />
+				<dl>
+					<dd v-for="(item,index) in messageArr" >{{index+1}} .   {{item}}
+					<input type="button" value="X" @click="remove(index)" /></dd>
+				</dl>
+				<input type="button" @click="clear" value="clear" />
+				<span v-show="messageArr.length!=0">共 {{messageArr.length}} 条记录</span>
+			</div>
+		</div>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				methods: {
+					save: function() {
+						this.messageArr.push(this.message)
+						alert("save")
+						this.message = ""
+					},
+					clear: function() {
+						this.messageArr = []
+					},
+					remove: function(index) {
+						this.messageArr.splice(index,1)
+						alert("remove OK")
+					}
+				},
+				data: {
+					messageArr: ["this is text", "this is p"],
+					message: " ",
+				}
+			})
+		</script>
+	</body>
+</html>

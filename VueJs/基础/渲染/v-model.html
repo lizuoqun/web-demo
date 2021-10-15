@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="user-scalable=no, width=device-width, 
+		initial-scale=1.0, maximum-scale=1.0">
+		<title>1</title>
+		<!--导入开发版的vuejs-->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="message" @keydown.enter="getEle"/>
+			{{message}}
+			<br />
+			<input type="button" value="重新设置" @click="setEle"/>
+		</div>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				methods: {
+					getEle:function(){
+						alert(this.message)
+					},
+					setEle:function(){
+						this.message="长沙民政"
+						alert(this.message)
+					}
+				},
+				data: {
+					message:"hello changsha"
+				}
+			})
+		</script>
+	</body>
+</html>

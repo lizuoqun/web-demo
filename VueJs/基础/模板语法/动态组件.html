@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+
+			<button v-for="tab in tabs">{{tab}}</button>
+			<component v-bind:is="currentTabComponent" class="tab"></component>
+		</div>
+
+		<script>
+			Vue.component('Home', {
+					template: '<div>this is Hone</div>'
+				}),
+				Vue.component('Index', {
+					template: '<div>this is Index</div>'
+				}),
+				Vue.component('Login', {
+					template: '<div>this is Login</div>'
+				})
+
+			var app = new Vue({
+				el: "#app",
+				data: {
+					tabs: ["Home", "Index", "Login"]
+				},
+				computed:{
+					currentTabComponent:function(){
+						return :
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

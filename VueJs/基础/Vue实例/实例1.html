@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+
+		</div>
+
+		<script>
+			var data = {
+				a: 1
+			}
+			//Object.freeze(data) //阻止修改现有的属性
+			var app = new Vue({
+				el: "#app",
+				data: data
+			})
+			/*
+			alert(data.a == app.a)
+			data.a = 5
+			alert(app.a)
+			app.a = 10
+			alert(data.a)
+			*/
+			alert(app.$data === data)
+			alert(app.$el === document.getElementById("app"))
+		</script>
+	</body>
+</html>
