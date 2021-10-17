@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function self({
+				name,
+				age,
+				...user
+			}) {
+				console.log(name)
+				console.log(age)
+				console.log(user)
+			}
+
+			self({
+				name: 'yueyue',
+				age: 18,
+				hieght: '170cm',
+				weight: '62kg'
+			})
+
+			const person = {
+				name: 'huang',
+				age: '18',
+				color: 'huang'
+			}
+			console.log({
+				...person
+			})
+		</script>
+	</body>
+</html>

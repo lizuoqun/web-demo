@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 创建对象
+			const xhr = new XMLHttpRequest()
+			// 初始化
+			xhr.open('GET', "http://api.apiopen.top/getJoke")
+			// 发送请求
+			xhr.send()
+			// 绑定事件，处理结果
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+					if (xhr.status >= 200 && xhr.status < 300) {
+						console.log(xhr.response)
+					} else {
+						console.error(xhr.status)
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

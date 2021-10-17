@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="module">
+			// 直接打开会出现跨域问题
+			import * as me from './me.js'
+			console.log(me)
+			import * as me2 from './me2.js'
+			console.log(me2)
+			
+			// 解构赋值分别暴露
+			 import {default as me3} from './me3.js'
+			 console.log(me3)
+			
+			// 简便形式 只能针对默认暴露
+			import me4 from './me3.js'
+			console.log(me4)
+		</script>
+	</body>
+</html>

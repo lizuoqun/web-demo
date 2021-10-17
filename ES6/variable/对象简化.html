@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let name = "name";
+			let change = function(){
+				console.log("change")
+			}
+			const obj ={
+				name,
+				change,
+				noChange:function(){
+					console.log("no change")
+				}
+			}
+			console.log(obj)
+		</script>
+	</body>
+</html>

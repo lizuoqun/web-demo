@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let str = '<a href="http://www.baidu.com">baidu</a>'
+			const reg = /<a href="(.*)">(.*)<\/a>/
+			const res = reg.exec(str)
+			console.log(res)
+
+			let str1 = '<a href="http://www.baidu.com">baidu</a>'
+			const reg1 = /<a href="(?<url>.*)">(?<text>.*)<\/a>/
+			const res1 = reg1.exec(str1)
+			console.log(res1)
+			console.log(res1.groups.url)
+			console.log(res1.groups.text)
+		</script>
+	</body>
+</html>

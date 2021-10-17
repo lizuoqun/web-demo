@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 获取 用户信息、订单、商品
+			// 使用setTimeout模拟request网络请求
+			function getUser() {
+				setTimeout(() => {
+					let data = 'user';
+					res.next(data)
+				}, 1000)
+			}
+
+			function getOrder() {
+				setTimeout(() => {
+					let data = 'order'
+					res.next(data)
+				}, 1000)
+			}
+
+			function getGoods() {
+				setTimeout(() => {
+					let data = 'goods'
+					res.next(data)
+				}, 1000)
+			}
+
+			function* gen() {
+				let user = yield getUser();
+				console.log(user)
+				let order = yield getOrder();
+				console.log(order)
+				let goods = yield getGoods();
+				console.log(goods)
+			}
+
+			let res = gen()
+			res.next();
+		</script>
+	</body>
+</html>

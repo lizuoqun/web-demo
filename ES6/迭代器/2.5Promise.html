@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 实例化 Promise 对象
+			const p = new Promise(function(resolve, reject) {
+				setTimeout(() => {
+					// 成功
+					// let data = 'user';
+					// resolve(data)
+					// 失败
+					let data = 'defult'
+					reject(data)
+				}, 1000)
+			})
+			// 
+			p.then(function(value) {
+				console.log(value)
+			}, function(reason) {
+				console.log(reason)
+			})
+		</script>
+	</body>
+</html>

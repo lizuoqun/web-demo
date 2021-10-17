@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 声明
+			let map = new Map()
+			//元素的添加
+			map.set('name', 'yueyue')
+			map.set('age', 18)
+			map.set('change', function change() {
+				console.log('change function')
+			})
+			let key = {
+				school: '民院'
+			};
+			map.set(key, ['长沙市雨花区'])
+			console.log(map)
+			// 个数
+			console.log(map.size)
+			// 删除
+			map.delete('age')
+			// 获取 根据键获取
+			console.log(map.get('name'))
+			console.log(map.get(key))
+			// 清空
+			// map.clear()
+			// 遍历
+			for (let v of map) {
+				console.log(v)
+			}
+		</script>
+	</body>
+</html>

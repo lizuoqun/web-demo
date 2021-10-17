@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// ES5 
+			// 通过构造函数
+			function Person(name, age) {
+				this.name = name;
+				this.age = age;
+			}
+			// 添加方法
+			Person.prototype.myself = function() {
+				console.log('i am person')
+			}
+			// 实例化
+			let p = new Person('yueyue', 20)
+			console.log(p)
+			p.myself()
+
+			// ES6 通过class类
+			class PersonOne {
+				// 构造方法
+				constructor(name, age) {
+					this.name = name;
+					this.age = age;
+				}
+				myself() {
+					console.log('i am person')
+				}
+			}
+			let p1 = new PersonOne('yueyue', 20)
+			console.log(p1)
+			p1.myself()
+		</script>
+	</body>
+</html>

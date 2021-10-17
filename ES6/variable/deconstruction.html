@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>deconstruction</title>
+	</head>
+	<body>
+		<script>
+			//解构赋值
+			const arr = ["the shy", "ning", "rookie", "baolan"];
+			let [S, Y, Z, F] = arr;
+			console.log(S);
+			console.log(Y);
+			console.log(Z);
+			console.log(F);
+			
+			// 对象结构
+			const Rookie = {
+				name:"宋义进",
+				age:23,
+				middle:function(){
+					console.log("IG middle");
+				}
+			}
+			
+			let {name,age,middle} = Rookie;
+			console.log(name)
+			console.log(age)
+			console.log(middle)
+			
+			// let {middle} = Rookie
+			// console.log(middle)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 1 数组去重
+			let arr = [1, 2, 2, 3, 3, 4, 4, 2, 1, 1]
+
+			// let res = new Set(arr) // 这是还是Set集合
+			// res = [...res] // 转为Array数组
+			// console.log(res)
+
+			// 求交集
+			let arr2 = [1, 2, 3, 4, 23, 2]
+			let res = [...new Set(arr)].filter(item => {
+				let res2 = new Set(arr2)
+				if (res2.has(item)) {
+					return true
+				} else {
+					return false
+				}
+			})
+			console.log(res)
+
+			let res2 = [...new Set(arr)].filter(item =>
+				new Set(arr2).has(item)
+			)
+			console.log(res2)
+			// 求并集
+			let union = [...new Set([...arr, ...arr2])]
+			console.log(union)
+
+			// 求差集
+			let diff = [...new Set(arr)].filter(item =>
+			!(new Set(arr2).has(item))
+			)
+			console.log(diff)
+		</script>
+	</body>
+</html>

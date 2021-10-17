@@ -1,0 +1,41 @@
+// {
+//     // 使用 IntelliSense 了解相关属性。 
+//     // 悬停以查看现有属性的描述。
+//     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "type": "pwa-chrome",
+//             "request": "launch",
+//             "name": "Open es6模块化.html",
+//             "file": "f:\\学习课程\\前端\\工作区间\\ES6\\模块化\\es6模块化.html"
+//         }
+//     ]
+// }
+ 
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "pwa-chrome",
+        "request": "launch",
+        "name": "Launch Chrome against localhost",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}"
+      },
+      {
+        "name": "使用本机chrome调试",
+        // "type": "chrome",
+        "request": "launch",
+        "file":"${file}",
+        "runtimeExecutable":"F:\\谷歌浏览器\\Google\\Chrome\\Application\\chrome.exe",
+        "sourceMaps":true,
+        "webRoot": "${workspaceRoot}",
+        "userDataDir":"${tmpdir}",
+        "port":9222
+      }
+    ]
+  }

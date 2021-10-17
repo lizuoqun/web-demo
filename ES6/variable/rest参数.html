@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// ES5
+			function data(){
+				console.log(arguments)
+			}
+			data('黄','月','月');
+			// ES6 rest参数
+			// rest 参数必须放在最后
+			function data1(...args){
+				console.log(args)
+			}
+			data1('黄','月','月');
+		</script>
+	</body>
+</html>

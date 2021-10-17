@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			class Phone {
+				get price() {
+					console.log('get price');
+					return 1999;
+				}
+				set price(value) {
+					console.log('set price')
+				}
+			}
+			let huawei = new Phone()
+			console.log(huawei.price)
+			huawei.price = '2999'
+		</script>
+	</body>
+</html>

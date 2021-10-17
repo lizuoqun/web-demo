@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			const IG = ['the shy', 'ning', 'rookie', 'jackerlove', 'baolan']
+
+			// 使用 for of 进行遍历
+			for (item of IG) {
+				console.log(item)
+			}
+			// of 得到值 in得到索引
+			for (item in IG) {
+				console.log(item)
+			}
+
+			// 迭代 往后指 得到value和done的值
+			let iterator = IG[Symbol.iterator]();
+			console.log(iterator.next())
+			console.log(iterator.next())
+			console.log(iterator.next())
+			console.log(iterator.next())
+			console.log(iterator.next())
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div><div></div><div></div>
+		<script>
+			//  ... 扩展运算符可以将数组转换为逗号分隔的参数序列
+			const IG = ['the shy','ning','rookie','jackerlove','baolan']
+			
+			function LPL(){
+				console.log(arguments)
+			}
+			LPL(IG)
+			LPL(...IG)
+			
+			// 数组合并
+			const a = ['1','2','3']
+			const b = ['4','5','6']
+			// 对于ES5
+			console.log(a.concat(b))
+			// 对于ES6 扩展运算符来说直接在中间加上一个逗号即可
+			console.log([...a,...b]);
+			
+			// 数组克隆
+			const SZH = ['E','G','M']
+			const SYC = [...SZH]
+			console.log(SYC)
+			
+			// 伪数组转真数组
+			const divs = document.querySelectorAll("div")
+			const divArr = [...divs]
+			console.log(divArr)
+		</script>
+	</body>
+</html>

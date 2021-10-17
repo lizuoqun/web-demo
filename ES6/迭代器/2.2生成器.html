@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function* gen() {
+				console.log("hello world")
+			}
+
+			let res = gen()
+			console.log(res)
+
+			res.next()
+
+			// yield 作为代码分隔符
+			function* gen1() {
+				console.log('1')
+				yield 'this is one'
+				console.log('2')
+				yield 'this is two'
+				console.log('3')
+				yield 'this is three'
+			}
+
+			// 不会执行
+			let res1 = gen1()
+			res1.next()
+			res1.next()
+			res1.next()
+
+			// 生成器参数
+			function* gen2(arg) {
+				console.log(arg)
+				let B = yield 111;
+				console.log(B)
+				yield 222;
+				yield 333;
+			}
+
+			let res2 = gen2("AA")
+			console.log(res2.next())
+			// next 方法可传实参 
+			console.log(res2.next("BBB"))
+			console.log(res2.next())
+		</script>
+	</body>
+</html>

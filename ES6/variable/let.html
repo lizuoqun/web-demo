@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>let</title>
+	</head>
+	<body>
+		<script>
+			//變量申明，不允許重複申明
+			let a = "a",
+				d = {};
+			let a = "this is a";
+			console.log(a)
+			//块作用域
+			let b, c; {
+				let boy = "月月"
+			}
+			console.log(boy)
+			//变量提升不存在
+			
+			
+			try () {
+				console.log(school)
+				let school = "长沙民政";
+			}
+			//可访问外层let变量
+			{
+				let collage = "长沙民政"
+
+				function fn() {
+					console.log(collage)
+				}
+				fn()
+			}
+		</script>
+	</body>
+</html>

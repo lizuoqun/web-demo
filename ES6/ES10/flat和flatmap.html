@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// flat 多维数组转低维数组
+			let arr = [1, 2, 3, [4, 5, [1, 55, [4]]]]
+			// 参数 表示 降几个维度
+			console.log(arr.flat(2))
+
+			let arr1 = [4, 5, 2]
+			const res = arr1.flatMap((item) => [item * 58])
+			console.log(res)
+		</script>
+	</body>
+</html>

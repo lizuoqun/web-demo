@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>letExample</title>
+	</head>
+	<style>
+		.item {
+			width: 100px;
+			height: 50px;
+			border: 1px solid #000000;
+		}
+	</style>
+	<body>
+		<div>
+			<h2>点击改变颜色</h2>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+		<script>
+			var items = document.getElementsByClassName("item")
+
+			//i 作为全局变量，在function的块级作用域没有，往外找，var的i的值会变为3
+			/*
+			for (var i = 0; i < items.length; i++) {
+				items[i].onclick = function() {
+					this.style.background = 'blue'
+					//所以在这里使用items[i]进行使用。i的值为3，没有对应的属性style
+					//items[i].style.background = 'skyblue'
+				}
+			}
+			*/
+			//如果要使用这个items[i]进行赋值的话，就需要使用let进行局部变量的声明
+			for (let i = 0; i < items.length; i++) {
+				items[i].onclick = function() {
+					items[i].style.background = 'firebrick'
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			const p = new Promise((resolve, reject) => {
+				setTimeout(() => {
+					reject("err")
+				}, 1000)
+			})
+			// p.then((value, reason) => {
+			// 	console.log(reason)
+			// })
+
+			p.catch(reason => {
+				console.log(reason)
+			})
+		</script>
+	</body>
+</html>

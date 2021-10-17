@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// set 的声明
+			let set = new Set();
+			console.log(set)
+			console.log(typeof set)
+			// Set 存储会进行去重
+			let set2 = new Set(['a', 's', 'd', 'a', 's'])
+			console.log(set2)
+			// 元素的个数
+			console.log(set2.size);
+			// 添加元素
+			set2.add('f')
+			// 删除元素
+			set2.delete('a')
+			// 判断是否存在
+			set2.has('s')
+			// 清空
+			//set2.clear()
+			
+			// 遍历
+			for(let val of set2){
+				console.log(val)
+			}
+		</script>
+	</body>
+</html>

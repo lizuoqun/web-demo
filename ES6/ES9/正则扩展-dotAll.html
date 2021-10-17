@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<a>速度与激情9</a>
+				<p>上映时间：2021-05-21</p>
+			</li>
+			<li>
+				<a>阿甘正传9</a>
+				<p>上映时间：1994-07-06</p>
+			</li>
+		</ul>
+		<script>
+			let str = `<ul>
+			<li>
+				<a>速度与激情9</a>
+				<p>上映时间：2021-05-21</p>
+			</li>
+			<li>
+				<a>阿甘正传9</a>
+				<p>上映时间：1994-07-06</p>
+			</li>
+		</ul>`
+			// 使用正则进行匹配
+			const reg = /<li>\s+<a>(.*?)<\/a>/
+
+			const res = reg.exec(str)
+
+			console.log(res)
+
+			const reg1 = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs
+			// gs 进行全局匹配
+			let res1;
+			// 使用data进行保存
+			let data = []
+			while (res1 = reg1.exec(str)) {
+				//console.log(res1)
+				data.push({
+					title: res1[1],
+					time: res1[2]
+				})
+			}
+			console.log(data)
+		</script>
+	</body>
+</html>

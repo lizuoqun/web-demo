@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let f = function() {}
+			let t = (a, b) => {
+				return a + b
+			}
+			console.log(t(1, 2))
+			// 箭头函数的特点
+			// 1 this是静态的，this始终指向函数声明时所在作用域下的this
+			function getName() {
+				console.log(this.name)
+			}
+			let getName1 = () => {
+				console.log(this.name)
+			}
+			// 改变window下的这个name的值
+			window.name = '月月鸟'
+			getName()
+			getName1()
+
+			const obj1 = {
+				name: '黄月月'
+			}
+			// 使用call函数改变当前this的值
+			getName.call(obj1)
+			getName1.call(obj1)
+
+			// 不能使用箭头函数保存agruments实参
+			let fn = () => {
+				console.log(arguments);
+			}
+			// fn()
+			// 箭头函数的省略
+			let fn1 = (n) => {
+				return n * n
+			}
+			// 当形参只有一个点时候可以省略括号
+			let fn2 = n => {
+				return n * n
+			}
+			// 只有一条语句可省略大括号和return
+			let fn3 = n => n * n
+			console.log(fn1(3))
+			console.log(fn2(3))
+			console.log(fn3(3))
+		</script>
+	</body>
+</html>

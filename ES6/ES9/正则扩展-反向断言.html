@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let str = '123456是是是555啊啊啊';
+
+			// 正向断言
+			const reg = /\d+(?=啊)/
+			const res = reg.exec(str)
+			console.log(res)
+
+			// 反向断言
+			const reg1 = /(?<=是)\d+/
+			const res1 = reg.exec(str)
+			console.log(res1)
+		</script>
+	</body>
+</html>

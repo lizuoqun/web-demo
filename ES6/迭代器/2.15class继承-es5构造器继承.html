@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// ES5
+			function Person(name, age) {
+				this.name = name;
+				this.age = age;
+			}
+			Person.prototype.myself = function() {
+				console.log('i am person')
+			}
+
+			// 继承
+			function APerson(name, age, size) {
+				// 继承父类
+				Person.call(this, name, age)
+				this.size = size
+			}
+			// 设置子类构造函数的原型
+			APerson.prototype = new Person;
+			APerson.prototype.constructor = APerson;
+
+			// 添加子类方法
+			APerson.prototype.play = function() {
+				console.log('play')
+			}
+			let p = new APerson('yue', 18, 100)
+			console.log(p)
+			p.myself()
+			p.play()
+
+			//ES6
+			class Phone {
+				constructor(name, size) {
+					this.name = name;
+					this.size = size;
+				}
+				call() {
+					console.log('i can call')
+				}
+			}
+			// 继承父类
+			class huawei extends Phone {
+				constructor(name, size, price) {
+					// 子类调父类的构造方法
+					super(name, size);
+					// 子类独有的参数构造
+					this.price = price;
+				}
+				play() {
+					console.log('i can play')
+				}
+				call(){
+					console.log('i can huawei call')
+				}
+			}
+			const magic2 = new huawei('magic2', '4.7 inch', 2999)
+			console.log(magic2)
+			magic2.call()
+			magic2.play()
+		</script>
+	</body>
+</html>

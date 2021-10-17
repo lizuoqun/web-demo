@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			const school = {
+				name: '民院',
+				cities: ['长沙',
+					'广州',
+					'深圳',
+				],
+			}
+
+			// 获取所有键与值
+			console.log(Object.keys(school))
+			console.log(Object.values(school))
+			console.log(Object.entries(school))
+
+			const map = new Map(Object.entries(school))
+			console.log(map.get('name'))
+			
+			console.log(Object.getOwnPropertyDescriptors(school))
+		</script>
+	</body>
+</html>
